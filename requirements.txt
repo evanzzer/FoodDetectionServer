@@ -5,3 +5,17 @@ itsdangerous==1.1.0
 Jinja2==2.11.3
 MarkupSafe==1.1.1
 Werkzeug==1.0.1
+numpy
+mmengine==0.7.3
+
+--find-links https://download.openmmlab.com/mmcv/dist/cpu/torch1.12/index.html
+mmcv>=2.0.0rc2
+
+--find-links https://download.pytorch.org/whl/cpu/
+torch==1.12.1+cpu
+torchvision==0.13.1+cpu"
+
+mmdeploy==1.0.0
+mmdeploy-runtime==1.0.0
+jsonpickle==3.0.1
+opencv-python==4.5.5
