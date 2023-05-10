@@ -11,7 +11,7 @@ mmengine==0.7.3
 --find-links https://download.openmmlab.com/mmcv/dist/cpu/torch1.12/index.html
 mmcv>=2.0.0rc2
 
---find-links https://download.pytorch.org/whl/cpu/
+--find-links https://download.pytorch.org/whl/torch_stable.html
 torch==1.12.1+cpu
 torchvision==0.13.1+cpu"
 
