@@ -13,7 +13,7 @@ mmcv>=2.0.0rc2
 
 --find-links https://download.pytorch.org/whl/torch_stable.html
 torch==1.12.1+cpu
-torchvision==0.13.1+cpu"
+torchvision==0.13.1+cpu
 
 mmdeploy==1.0.0
 mmdeploy-runtime==1.0.0
