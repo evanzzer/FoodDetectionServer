@@ -18,3 +18,4 @@ torchvision==0.13.1+cpu
 mmdeploy==1.0.0
 mmdeploy-runtime==1.0.0
 jsonpickle==3.0.1
+opencv-python-headless
