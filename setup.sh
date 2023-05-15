@@ -1,6 +1,5 @@
 #!/bin/bash
-sudo apt update
-sudo apt-get install python3-opencv wget -y
+apt-get update && install ffmpeg libsm6 libxext6 wget -y
 pip install opencv-python
 wget https://github.com/microsoft/onnxruntime/releases/download/v1.8.1/onnxruntime-linux-x64-1.8.1.tgz -O onnxruntime-linux-x64-1.8.1.tgz
 rm -rf onnxruntime-linux-x64-1.8.1
