@@ -1,9 +1,11 @@
-from flask import Flask, request, Response, jsonify
 import numpy as np
 import jsonpickle
 import cv2
 import os
-from mmdeploy_python import Detector
+
+from flask import Flask, request, Response, jsonify
+from datetime import datetime
+from mmdeploy_runtime import Detector
 
 app = Flask(__name__)
 classes = ('ayam', 'blueberry-muffin', 'bubur', 'burger',
@@ -29,7 +31,8 @@ def test_connect():
 @app.route("/upload", methods=['POST'])
 def upload_img():
     # check if the post request has the file part
-    print(request.files)
+    start_time = datetime.now()
+    
     if 'pic' not in request.files:
         print('No file part')
         response = {'status': 'fail', 'message': 'no file part'}
@@ -46,7 +49,7 @@ def upload_img():
     # decode img
     img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
     # create a detector
-    detector = Detector(model_path='/home/leafy/model-v3', device_name='cpu', device_id=0)
+    detector = Detector(model_path='/root/model', device_name='cpu', device_id=0)
     # run the inference
     bboxes, labels, _ = detector(img)
     # Filter the result according to threshold
@@ -64,8 +67,14 @@ def upload_img():
             score=round(float(score), 3)
         )
         response['detection'].append(data)
+        
+    dt = datetime.now() - start_time
+    ms = (dt.days * 24 * 60 * 60 + dt.seconds) * 1000 + dt.microseconds / 1000.0
+    print("####################")
+    print(f"Time Taken: {int(ms)}ms")
+    print("####################")
     return jsonify(response)
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=os.getenv("PORT", default=5000))
+    app.run(debug=True, host="0.0.0.0", port=os.getenv("PORT", default=5000))
