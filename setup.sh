@@ -1,5 +1,4 @@
 #!/bin/bash
-apt-get update && apt install python3-pip -y
 pip install -r ./requirements.txt
 pip install kaggle
 

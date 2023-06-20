@@ -49,7 +49,7 @@ def upload_img():
     # decode img
     img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
     # create a detector
-    detector = Detector(model_path='/root/model', device_name='cpu', device_id=0)
+    detector = Detector(model_path='/home/dabestevanzzacc/model', device_name='cpu', device_id=0)
     # run the inference
     bboxes, labels, _ = detector(img)
     # Filter the result according to threshold
